@@ -1,17 +1,17 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { ICard } from "../App/App.interface";
 import './Card.css';
 
-const Card: FC<ICard> = ({id, imageUrl, relation}) => {
-    const [isShow, setIsShow] = useState<boolean>(false);
+interface Props {
+    card: ICard;
+    onClick: (card: ICard) => () => void
+}
 
-    const handleClick = () => {
-        setIsShow(true)
-    }
+const Card: FC<Props> = ({card, onClick}) => {
 
     return (
-        <article onClick={handleClick} className={`cards-container__card card ${isShow ? 'show' : 'hidden'}`}>
-            {isShow ? <img src={imageUrl} alt='Картинка' /> : <h3>K/C</h3>}
+        <article onClick={onClick(card)} className={`cards-container__card card ${card.isShow ? 'show' : 'hidden'} ${card.guessed ? 'guessed' : ''}`}>
+            {card.isShow ? <img src={card.imageUrl} alt='Картинка' /> : <h3>K/C</h3>}
         </article>
     );
 };

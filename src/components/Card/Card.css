@@ -6,6 +6,7 @@
     border-radius: 4px;
     justify-content: center;
     cursor: pointer;
+    padding: 10px;
 }
 
 .hidden {
@@ -13,5 +14,12 @@
     color: var(--white-color);
     font-size: 40px;
     font-weight: 700;
-    padding: 10px;
+}
+
+.show {
+    background-color: var(--gray-color);
+}
+
+.guessed {
+    visibility: hidden;
 }
