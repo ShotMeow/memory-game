@@ -6,7 +6,7 @@
     "url": "git@git.lab.karpov.courses:d-mavrin/memory-game.git"
   },
   "scripts": {
-    "start": "webpack serve",
+    "start": "set NODE_ENV=development & webpack serve",
     "build": "webpack"
   },
   "author": "ShotMeow",
