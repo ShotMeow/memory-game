@@ -1,0 +1,17 @@
+.cards-container__card {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.hidden {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 40px;
+    font-weight: 700;
+    padding: 10px;
+}

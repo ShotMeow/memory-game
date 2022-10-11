@@ -1,0 +1,15 @@
+:root {
+    --primary-color: #0083FC;
+    --secondary-color: #FF5533;
+    --white-color: #FFFFFF;
+    --gray-color: #E5E5E5;
+}
+
+* {
+    all: unset;
+    display: revert;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}

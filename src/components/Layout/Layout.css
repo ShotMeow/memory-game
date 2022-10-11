@@ -1,0 +1,36 @@
+.layout {
+  color: var(--primary-color);
+  background-color: var(--white-color);
+  width: 100%;
+  height: 100vh;
+}
+
+.layout__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30%;
+}
+
+.layout__main {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  height: 70%;
+}
+
+.layout__aside {
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.aside__primary {
+  color: var(--secondary-color);
+}
+
+.header__heading {
+  font-size: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
