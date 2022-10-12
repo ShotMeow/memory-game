@@ -12,14 +12,14 @@ const App: FC = () => {
     const [clicks, setClicks] = useState<number>(1);
     const [currentIdCard, setCurrentIdCard] = useState<number | null>(null)
     const [cards, setCards] = useState<ICard[]>(cardsShuffleHelper(cardsData));
+    const [lock, setLock] = useState<boolean>(false)
 
     const onCardClick = (currentCard: ICard) => () => {
         if (currentCard.id === currentIdCard) return
 
-        setClicks(clicks + 1)
-        setAttempts(attempts - 1)
+        setClicks(clicks + 1);
 
-        const newCards = [...cards]
+        const newCards = [...cards];
         newCards.forEach((card) => {
             if (card.id === currentCard.id) {
                 card.isShow = true
@@ -30,7 +30,9 @@ const App: FC = () => {
         if (clicks === 1) {
             setCurrentIdCard(currentCard.id);
         } else if (clicks === 2) {
+            setLock(true);
             setTimeout(() => {
+                setAttempts(attempts - 1)
                 if (currentIdCard === currentCard.relation) {
                     newCards.forEach((card) => {
                         if (card.id === currentIdCard || card.id === currentCard.id) {
@@ -44,8 +46,9 @@ const App: FC = () => {
                     });
                     setCards(newCards);
                 }
-                setClicks(1)
-                setCurrentIdCard(null)
+                setClicks(1);
+                setCurrentIdCard(null);
+                setLock(false);
             }, 1000)
         }
     };
@@ -67,7 +70,7 @@ const App: FC = () => {
             {!cards.find((card) => {
                 return !card.guessed
             }) && <Modal onClick={handleReset} status='win' attempts={attempts} />}
-            <div className="section__cards-container cards-container">
+            <div className={`section__cards-container cards-container ${lock ? 'lock' : ''}`}>
                 {cards.map((card) => <Card key={card.id} card={card} onClick={onCardClick} />)}
             </div>
         </Layout>

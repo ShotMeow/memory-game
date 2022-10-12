@@ -7,6 +7,11 @@
     justify-content: center;
     cursor: pointer;
     padding: 10px;
+    transition: transform 0.2s ease;
+}
+
+.cards-container__card:hover {
+    transform: scale(1.05);
 }
 
 .hidden {
