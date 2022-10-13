@@ -32,7 +32,6 @@ const App: FC = () => {
         } else if (clicks === 2) {
             setLock(true);
             setTimeout(() => {
-                setAttempts(attempts - 1)
                 if (currentIdCard === currentCard.relation) {
                     newCards.forEach((card) => {
                         if (card.id === currentIdCard || card.id === currentCard.id) {
@@ -41,6 +40,7 @@ const App: FC = () => {
                     })
                     setCards(newCards);
                 } else {
+                    setAttempts(attempts - 1)
                     newCards.forEach((card) => {
                         card.isShow = false
                     });
